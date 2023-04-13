@@ -9,8 +9,6 @@ export default function CategoriesRefinement ({ setSelectedCategory }) {
   useEffect(() => {
     api.getCategories().then((data) => {
       console.log('Fetched', data)
-
-      (data)
     })
   }, [])
   return (
