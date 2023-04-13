@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ItemCard from "../components/ItemCard";
 
-export default function ItemsScreen() {
+export default function Home() {
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
 
@@ -16,13 +16,27 @@ export default function ItemsScreen() {
       });
   }, []);
 
+  
+
   return loading ? (
     <div>Loading...</div>
   ) : (
-    <div>
-      {items.map((item) => (
-        <ItemCard key={item.item_id} {...item} />
-      ))}
-    </div>
+    <>
+      <div className="items-container">
+        {items.map((item) => (
+          <ItemCard key={item.item_id} {...item} />
+        ))}
+      </div>
+
+      <style jsx>{`
+        .items-container{
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);   
+          gap: 20px;
+          width: 90vw;
+          margin: auto;
+        }
+      `}</style>
+    </>
   );
 }
