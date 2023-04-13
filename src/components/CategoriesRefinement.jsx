@@ -9,29 +9,40 @@ export default function CategoriesRefinement ({ setSelectedCategory }) {
   useEffect(() => {
     api.getCategories().then((data) => {
       console.log('Fetched', data)
+      setCategories(data);
     })
   }, [])
   return (
     <>
-      <select
-        value={currentlySelected} onChange={(event) => {
-          // console.log(event.target.value)
-          setCurrentlySelected(event.target.value)
-        }}
-      >
-        <option value=''>-----</option>
-        {categories.map(({ category_name }) => {
-          return (
-            <option key={category_name} value={category_name}>{category_name}</option>
-          )
-        })}
-      </select>
+      <div>
+        <label htmlFor="category">Category:</label>
+        <select
+          name='category'
+          value={currentlySelected} onChange={(event) => {
+            // console.log(event.target.value)
+            setCurrentlySelected(event.target.value)
+          }}
+        >
+          <option value=''>-----</option>
+          {categories.map(({ category_name }) => {
+            return (
+              <option key={category_name} value={category_name}>{category_name}</option>
+            )
+          })}
+        </select>
+      </div>
       <button onClick={(e) => {
         e.preventDefault()
         setSelectedCategory(currentlySelected)
       }}
       >Refine
       </button>
+
+      <style jsx>{`
+        label {
+          display: block;
+        }
+      `}</style>
     </>
   )
 }

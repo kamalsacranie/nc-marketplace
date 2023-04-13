@@ -37,12 +37,19 @@ export default function Home () {
           display: grid;
           grid-template-columns: repeat(4, 1fr);   
           gap: 20px;
-          width: 90vw;
+          width: 80vw;
           margin: auto;
         }
         .layout{
           display: flex;
-          
+        }
+        .refinements{
+          display: flex;
+          width: 10vw;
+          border-right: 2px solid black;
+          flex-direction: column;
+          padding: 15px;
+          gap: 10px;
         }
       `}
       </style>
