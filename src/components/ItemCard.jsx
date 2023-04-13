@@ -1,17 +1,17 @@
-export default function ItemCard({
+export default function ItemCard ({
   item_id,
   item_name,
   description,
   img_url,
   price,
-  category_name,
+  category_name
 }) {
   return (
     <>
-      <div className="item">
+      <div className='item'>
         <img src={img_url} />
-        
-        <span className="category">{category_name}</span>
+
+        <span className='category'>{category_name}</span>
         <div>
           <h2>{item_name}</h2>
           <div>
@@ -19,8 +19,6 @@ export default function ItemCard({
           </div>
           <span>{description}</span>
         </div>
-        
-
 
       </div>
       <style jsx>{`
@@ -44,7 +42,8 @@ export default function ItemCard({
         }
         .category{
         }
-      `}</style>
+      `}
+      </style>
     </>
-  );
+  )
 }
