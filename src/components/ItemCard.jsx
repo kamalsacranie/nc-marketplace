@@ -22,19 +22,21 @@ export default function ItemCard({
       <style jsx="true">
         {`
           .item {
-            height: 50vh;
+            height: auto;
             display: flex;
             align-items: center;
             flex-direction: column;
             border-radius: 10px;
-            padding: 5px;
             background-color: #aca5a5;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
               0 6px 20px 0 rgba(0, 0, 0, 0.19);
           }
           .item > img {
-            height: 70%;
+            aspect-ratio: 1 / 1;
+            width: 100%;
             align-self: center;
+            border-radius: 10px;
+            object-fit: cover;
           }
           h2 {
             margin: 0;

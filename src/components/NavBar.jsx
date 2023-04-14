@@ -1,12 +1,16 @@
+import {Link} from "react-router-dom"
+import UserAvatar from "./UserAvatar";
 export default function NavBar() {
   return (
     <>
       <header>
-        <div id="logo">Logo</div>
+        <h1 id="logo">Random Crap:</h1>
 
         <div className="menu-items">
-          <div>Marketplace</div>
-          <div>Sell Item</div>
+          <Link to="/">Marketplace</Link>
+          <Link to="/sell-item">Sell Item</Link>
+
+          <UserAvatar />
         </div>
       </header>
 
@@ -33,6 +37,7 @@ export default function NavBar() {
           }
           #logo {
             font-size: 1.5em;
+            font-family: "Comic Papyrus";
           }
         `}
       </style>

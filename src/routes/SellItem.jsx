@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"
 import * as api from "../api";
 import ItemCard from "../components/ItemCard";
 
@@ -27,6 +28,7 @@ export const FormInput = ({
 };
 
 export default function SellItem() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
@@ -46,17 +48,24 @@ export default function SellItem() {
 
   const handleForm = (e) => {
     e.preventDefault();
+
+    const formData = {
+      item_name: name,
+      img_url: imageURL,
+      price,
+      description,
+      category_name: itemCategory,
+    }
+
     api
-      .postItem({
-        item_name: name,
-        img_url: imageURL,
-        price,
-        description,
-        category_name: itemCategory,
-      })
-      .then(({data: {item: {item_id}}}) => (item_id));
-    // redirect to newly created item
+      .postItem(formData)
+      .then(({data: {item}}) => {
+        console.log("Got response", item)
+        // Error handling
+        navigate("/");
+      });
   };
+
 
   return (
     <>

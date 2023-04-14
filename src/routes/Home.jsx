@@ -11,12 +11,13 @@ export default function Home() {
   useEffect(() => {
     setLoading(true);
     api.getItems(selectedCategory).then((data) => {
-      setItems(data);
+      data.sort((a,b)=> b.item_id - a.item_id)
+
+      setItems([...data]);
       setLoading(false);
     });
   }, [selectedCategory]);
 
-  console.log("Change category to:\t", selectedCategory);
 
   return (
     <div className="layout">
@@ -33,13 +34,30 @@ export default function Home() {
 
       <style jsx="true">
         {`
+          @media screen and (max-width: 950px) {
+            .items-container {
+              grid-template-columns: repeat(2, 1fr)!important;
+            }
+            .layout{
+              flex-direction: column;
+            }
+          }
+
+          @media screen and (max-width: 500px) {
+            .items-container {
+              grid-template-columns: repeat(1, 1fr)!important;
+            }
+            
+          }
+
           .items-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 6vw;
             width: 80vw;
             margin: auto;
           }
+
           .layout {
             display: flex;
           }

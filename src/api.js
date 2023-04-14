@@ -20,3 +20,7 @@ export const getItems = (category) => {
 export function postItem(item) {
   return api.post("/items", item);
 }
+
+export function getUsers() {
+  return api.get("/users").then(({ data }) => data.users);
+}
