@@ -43,7 +43,7 @@ export default function CategoriesRefinement({ setSelectedCategory }) {
         Refine
       </button>
 
-      <style jsx>{`
+      <style jsx="true">{`
         label {
           display: block;
         }

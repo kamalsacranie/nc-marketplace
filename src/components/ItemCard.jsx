@@ -1,5 +1,4 @@
 export default function ItemCard({
-  item_id,
   item_name,
   description,
   img_url,
@@ -20,7 +19,7 @@ export default function ItemCard({
           <span>{description}</span>
         </div>
       </div>
-      <style jsx>
+      <style jsx="true">
         {`
           .item {
             height: 50vh;

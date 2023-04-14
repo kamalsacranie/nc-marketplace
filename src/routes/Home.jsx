@@ -31,7 +31,7 @@ export default function Home() {
         )}
       </div>
 
-      <style jsx>
+      <style jsx="true">
         {`
           .items-container {
             display: grid;

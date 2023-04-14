@@ -10,7 +10,7 @@ export default function NavBar() {
         </div>
       </header>
 
-      <style jsx>
+      <style jsx="true">
         {`
           header {
             display: flex;
